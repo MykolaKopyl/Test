@@ -4,6 +4,3 @@ var a = [1,2,3,4,5,6,7];
 a.forEach(element => {
     console.log(element);
 });
-var test = 2;
-var test1 =123;
-var tt = 12;
