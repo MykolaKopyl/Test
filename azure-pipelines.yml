@@ -24,15 +24,17 @@ steps:
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
-- task: UploadFilesI@2
+- task: AzureCLI@2
+  displayName: 'Upload Files'
   inputs:
     azureSubscription: 'Azure subscription 1(22801d50-8d1e-48ab-a673-396c0cd9c277)'
     scriptType: 'ps'
     scriptLocation: 'inlineScript'
     inlineScript: 'az storage blob upload-batch --source "$(Build.ArtifactStagingDirectory)" -d test --account-name kopylmykola'
-- task: DeleteFiles@2
+- task: AzureCLI@2
+  displayName: 'Delete Files'
   inputs:
     azureSubscription: 'Azure subscription 1(22801d50-8d1e-48ab-a673-396c0cd9c277)'
     scriptType: 'ps'
     scriptLocation: 'inlineScript'
-    inlineScript: 'az storage blob delete-batch -s test --account-name kopylmykola --if-unmodified-since $(date -d `"3 minutes ago`" ''''+%Y-%m-%dT%H:%MZ'''')'
+    inlineScript: 'az storage blob delete-batch -s test --account-name kopylmykola --if-unmodified-since $(date -d `"1 hours ago`" ''''+%Y-%m-%dT%H:%MZ'''')'
