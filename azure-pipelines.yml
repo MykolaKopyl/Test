@@ -28,6 +28,6 @@ steps:
 
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(build)'
+    PathtoPublish: '$(source)'
     ArtifactName: 'ui-app'
     publishLocation: 'Container'
