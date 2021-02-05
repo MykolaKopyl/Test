@@ -26,6 +26,7 @@ steps:
 # https://aka.ms/yaml
 - task: AzureFileCopy@4
   inputs:
+    SourcePath: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     azureSubscription: 'Azure subscription 1(22801d50-8d1e-48ab-a673-396c0cd9c277)'
     Destination: 'AzureBlob'
     storage: 'mykola'
