@@ -24,10 +24,9 @@ steps:
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
-- task: AzureFileCopy@4
+- task: AzureCLI@2
   inputs:
-    SourcePath: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     azureSubscription: 'Azure subscription 1(22801d50-8d1e-48ab-a673-396c0cd9c277)'
-    Destination: 'AzureBlob'
-    storage: 'kopylmykola'
-    ContainerName: 'test'
+    scriptType: 'ps'
+    scriptLocation: 'inlineScript'
+    inlineScript: 'az storage blob upload-batch --source "$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip" -d test --account-name https://kopylmykola.blob.core.windows.net.'
