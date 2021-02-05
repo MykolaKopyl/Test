@@ -8,7 +8,7 @@ trigger:
 
 variables:
   source: 'src'
-  build: '$(souce/build)'
+  build: '$(souce)/build'
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -28,6 +28,6 @@ steps:
 
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'ui-front-app'
+    PathtoPublish: '$(build)'
+    ArtifactName: 'ui-app'
     publishLocation: 'Container'
