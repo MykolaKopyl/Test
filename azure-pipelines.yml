@@ -29,4 +29,4 @@ steps:
     azureSubscription: 'Azure subscription 1(22801d50-8d1e-48ab-a673-396c0cd9c277)'
     scriptType: 'ps'
     scriptLocation: 'inlineScript'
-    inlineScript: 'az storage blob upload-batch --source "$(Build.ArtifactStagingDirectory)" -d test --account-name $(Build.Environment.Name)kopylmykola'
+    inlineScript: 'az storage blob upload-batch --source "$(Build.ArtifactStagingDirectory)" -d test --account-name kopylmykola'
