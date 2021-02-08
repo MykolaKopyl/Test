@@ -4,7 +4,7 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
 trigger:
-- main
+- master
 
 variables:
   uiSource: 'src'
@@ -27,6 +27,6 @@ steps:
   
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'ui-app'
+    PathtoPublish: '$(uiSource)'
+    ArtifactName: 'drop'
     publishLocation: 'Container'
