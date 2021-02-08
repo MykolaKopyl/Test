@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          This is my super duper app
+          This app running in azure
         </a>
       </header>
     </div>
