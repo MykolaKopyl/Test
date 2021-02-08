@@ -7,7 +7,7 @@ trigger:
 - main
 
 variables:
-  uiSource: 'src'
+  uiSource: 'build'
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -19,7 +19,7 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
-    pushd $(uiSource)
+    pushd
     npm install
     npm run build
     popd
@@ -27,6 +27,6 @@ steps:
   
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(uiSource)'
+    PathtoPublish: '$(build)'
     ArtifactName: 'drop'
     publishLocation: 'Container'
