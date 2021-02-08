@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          This is my super app
+          This is my super duper app
         </a>
       </header>
     </div>
