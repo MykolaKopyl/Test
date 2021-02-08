@@ -26,8 +26,16 @@ steps:
     popd
   displayName: 'npm install and build'
 
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(build)'
+    includeRootFolder: true
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    replaceExistingArchive: true
+
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(source)'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'ui-app'
     publishLocation: 'Container'
