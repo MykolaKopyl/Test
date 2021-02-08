@@ -4,10 +4,11 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
 trigger:
-- main
+- master
 
 variables:
-  uiSource: 'build'
+  uiSource: 'src'
+  uiBuild: 'build'
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -21,11 +22,10 @@ steps:
 - script: |
     npm install
     npm run build
-    popd
   displayName: 'npm install and build'
   
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(build)'
+    PathtoPublish: '$(uiBuild)'
     ArtifactName: 'drop'
     publishLocation: 'Container'
